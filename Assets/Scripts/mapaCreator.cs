@@ -34,7 +34,7 @@ public class mapaCrator : MonoBehaviour
 
                 // Calcular la posición en el mundo de Unity
                 Vector3 position = new Vector3(x * tileSize + x * offset, -y * tileSize - y*offset, 0f);               
-                Vector3 positioni = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset, -0.1f);
+                Vector3 positioni = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset + 0.15f, -0.1f);
                 Vector3 positionj = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset, -0.2f);
                 if (y == 0)
                 {
@@ -92,12 +92,12 @@ public class mapaCrator : MonoBehaviour
                 {
                     if (contador == 0)
                     {
-                        Instantiate(mesaPrinc0, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc0, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                     else if (contador == 1)
                     {
-                        Instantiate(mesaPrinc1, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc1, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                     else if (contador == 2)
@@ -106,27 +106,27 @@ public class mapaCrator : MonoBehaviour
                     }
                     else if (contador == 3)
                     {
-                        Instantiate(mesaPrinc2, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc2, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                     else if (contador == 4)
                     {
-                        Instantiate(mesaPrinc3, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc3, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                     else if (contador == 5)
                     {
-                        Instantiate(mesaPrinc4, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc4, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                     else if (contador == 6)
                     {
-                        Instantiate(mesaPrinc5, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc5, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                     else if (contador == 7)
                     {
-                        Instantiate(mesaPrinc6, positioni, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
+                        Instantiate(mesaPrinc6, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                         contador++;
                     }
                 }
