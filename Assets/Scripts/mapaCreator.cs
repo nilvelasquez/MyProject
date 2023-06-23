@@ -1,31 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
-public class mapaCrator : MonoBehaviour
+public class mapaCreator : MonoBehaviour
 {
     public GameObject WoodenFloor; // Prefab del suelo
     public GameObject stone2; // Prefab de las paredes
     public GameObject WoodenTable; // Prefab de las tablas
     public GameObject WoodenChair; //Prefab de las sillas
-    public GameObject mesaPrinc0;
-    public GameObject mesaPrinc1;
-    public GameObject mesaPrinc2;
-    public GameObject mesaPrinc3;
-    public GameObject mesaPrinc4;
-    public GameObject mesaPrinc5;
-    public GameObject mesaPrinc6;
+    public GameObject[] enemy;
+    public GameObject Exit; //Prefab del exit    
     public float tileSize = 1f; // Tamaño de cada cuadrícula en unidades de Unity
     public TextAsset mapaTexto; // El archivo de texto con la distribución del mapa
     public float offset = 0.25f;
-    void Start()
+    public Vector3 exit;
+    public void Start()
     {
         string[] lineas = mapaTexto.text.Split('\n'); // Leer cada línea del archivo de texto
         int numRows = lineas.Length; // Obtener el número de filas del mapa
         int numCols = lineas[0].Length; // Obtener el número de columnas del mapa (asumiendo que todas las filas tienen la misma longitud)
         bool cont = true;
         bool cont2 = true;
-        int contador = 0;
         for (int y = 0; y < numRows; y++)
         {
             for (int x = 0; x < numCols-1; x++)
@@ -54,7 +52,7 @@ public class mapaCrator : MonoBehaviour
                 }
                 if (x == 0)
                 {
-                    Vector3 positionp = new Vector3(x * tileSize + x * offset -0.5f, -y * tileSize - y * offset, 0f);
+                    Vector3 positionp = new Vector3(x * tileSize + x * offset - 0.5f, -y * tileSize - y * offset, 0f);
                     Instantiate(stone2, positionp, Quaternion.identity); // Instanciar la pared en la posición correspondiente
                 }
                 if (y == numRows-1)
@@ -69,7 +67,10 @@ public class mapaCrator : MonoBehaviour
                     if ((x == numCols - 2) && (cont2 == true))
                     {
                         Vector3 positiony = new Vector3(x * tileSize + x * offset + 0.5f, -y * tileSize - y * offset - 0.5f, 0f);
+                        Vector3 positionx = new Vector3(x * tileSize + x * offset - 0.5f, -y * tileSize - y * offset - 0.5f, 0f);
                         Instantiate(stone2, positiony, Quaternion.identity); // Instanciar la pared en la posición correspondiente
+                        exit = positionx;
+                        Instantiate(Exit, positionx, Quaternion.identity);
                         cont2 = false;
                     }
                 }
@@ -88,49 +89,45 @@ public class mapaCrator : MonoBehaviour
                     Instantiate(WoodenTable, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                     Instantiate(WoodenChair, positioni, Quaternion.identity); // Instanciar la silla en la posición correspondiente
                 }
-                if (c == 'm')
-                {
-                    if (contador == 0)
-                    {
-                        Instantiate(mesaPrinc0, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                    else if (contador == 1)
-                    {
-                        Instantiate(mesaPrinc1, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                    else if (contador == 2)
-                    {                    
-                        contador++;
-                    }
-                    else if (contador == 3)
-                    {
-                        Instantiate(mesaPrinc2, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                    else if (contador == 4)
-                    {
-                        Instantiate(mesaPrinc3, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                    else if (contador == 5)
-                    {
-                        Instantiate(mesaPrinc4, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                    else if (contador == 6)
-                    {
-                        Instantiate(mesaPrinc5, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                    else if (contador == 7)
-                    {
-                        Instantiate(mesaPrinc6, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
-                        contador++;
-                    }
-                }
             }
+        }       
+    }
+    public void SetUpScene(int level)
+    {
+        int enemyCount = (int)Mathf.Log(level, 2f);
+        LayoutObjectAtRandom(enemy, enemyCount, enemyCount);
+    }
+    Vector3 RandomPosition()
+    {
+        string[] lineas = mapaTexto.text.Split('\n'); // Leer cada línea del archivo de texto
+        float numRows = lineas.Length; // Obtener el número de filas del mapa
+        float numCols = lineas[0].Length; // Obtener el número de columnas del mapa (asumiendo que todas las filas tienen la misma longitud
+        //Declare an integer randomIndex, set it's value to a random number between 0 and the count of items in our List gridPositions.
+        float randomIndex = Random.Range(0, numCols);
+        float randomIndey = Random.Range(0, numRows);
+
+        //Declare a variable of type Vector3 called randomPosition, set it's value to the entry at randomIndex from our List gridPositions.
+        Vector3 randomPosition = new Vector3(randomIndex, randomIndey, 0f);
+
+        //Return the randomly selected Vector3 position.
+        return randomPosition;
+    }
+    void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
+    {
+        //Choose a random number of objects to instantiate within the minimum and maximum limits
+        int objectCount = Random.Range(minimum, maximum + 1);
+
+        //Instantiate objects until the randomly chosen limit objectCount is reached
+        for (int i = 0; i < objectCount; i++)
+        {
+            //Choose a position for randomPosition by getting a random position from our list of available Vector3s stored in gridPosition
+            Vector3 randomPosition = RandomPosition();
+
+            //Choose a random tile from tileArray and assign it to tileChoice
+            GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
+
+            //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+            Instantiate(tileChoice, randomPosition, Quaternion.identity);
         }
     }
 }
