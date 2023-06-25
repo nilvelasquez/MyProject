@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         InitGame();
     }
     void InitGame()
-    {
+    {        
         mapaScript.Start();
         for (int i = 0; i < 3; i++)
         { 
@@ -51,13 +51,12 @@ public class GameManager : MonoBehaviour
                 Instantiate(enemy1, position, Quaternion.identity);
                 //enemy1.GetComponent<Enemy>().SetTarget(player);
             }
-           
         }
     }
     
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

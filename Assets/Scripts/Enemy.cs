@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    /*Transform attackPosition;
+    Transform attackPosition;
     GameObject targetGameObject;
     PlayerStats targetPlayer;
     [SerializeField] float speed;
@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour
     //Calculamos la dirección hacia donde se tiene que mover el monstruo para atacar al jugador
     private void FixedUpdate()
     {
-        Vector2 direction = (attackPosition.position - transform.position);
-        rigid.velocity = direction * speed;
+        //Vector2 direction = attackPosition.position - transform.position;
+        //GetComponent<Rigidbody2D>().MovePosition(transform.position + direction * speed);
     }
 
     //Función que llamamos cuando entra en contacto con el jugador
@@ -51,13 +51,4 @@ public class Enemy : MonoBehaviour
         targetGameObject = target;
         attackPosition = target.transform;
     }
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health < 1)
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }
