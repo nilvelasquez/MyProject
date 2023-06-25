@@ -12,8 +12,8 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame    
     public void SpawnEnemy()
     {
-        float y = UnityEngine.Random.Range(0, 9);
-        float x = UnityEngine.Random.Range(0, 9);
+        float y = UnityEngine.Random.Range(1, 4);
+        float x = UnityEngine.Random.Range(1, 4);
         Vector3 position = new Vector3(2*tileSize + x*offset, -2*tileSize -y*offset, -3f); ;
         Instantiate(enemy1, position, Quaternion.identity);
         enemy1.GetComponent<Enemy>().SetTarget(player);

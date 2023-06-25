@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
         mapaScript.Start();
         for (int i = 0; i < 3; i++)
         { 
-            float y = UnityEngine.Random.Range(0, 9);
-            float x = UnityEngine.Random.Range(0, 9);
-            Vector3 position = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset, -3f);
+            float y = UnityEngine.Random.Range(1, 4);
+            float x = UnityEngine.Random.Range(1, 4);
+            Vector3 position = new Vector3(x * tileSize, -y * tileSize, -3f);
             Instantiate(enemy1, position, Quaternion.identity);
             //enemy1.GetComponent<Enemy>().SetTarget(player);
         }
