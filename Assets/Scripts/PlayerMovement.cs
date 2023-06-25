@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 1f;
     public Rigidbody2D rb;
+    //public GameObject player;
     private BoxCollider2D box;
-    private Vector3 movement;
+    private Vector2 movement;
    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,30 +21,36 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);        
+        movement = new Vector2(moveHorizontal, moveVertical);        
     }
     void FixedUpdate()
     {
-        rb.AddForce(movement * speed);
+        rb.velocity = movement * speed;
     }
     public void MoveUp()
     {
-        rb.AddForce(new Vector3(0f, speed, 0f));
+        Debug.Log("UP");
+        movement = new Vector2(0f, speed);
+        rb.velocity = movement * speed;
     }
-
     public void MoveDown()
     {
-        rb.AddForce(new Vector3(0f,-speed, 0f));
+        Debug.Log("D");
+        movement = new Vector2(0f, -speed);
+        rb.velocity = movement * speed;
     }
-
     public void MoveLeft()
     {
-        rb.AddForce(new Vector3(-speed, 0f, 0f));
+        Debug.Log("Left");
+        movement = new Vector2(- speed, 0f);
+        rb.velocity = movement * speed;
     }
 
     public void MoveRight()
     {
-        rb.AddForce(new Vector3(speed, 0f, 0f));
+        Debug.Log("Right");
+        movement = new Vector2(speed, 0f);
+        rb.velocity = movement * speed;
     }
     /*
     [SerializeField] private float speed;

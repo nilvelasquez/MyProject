@@ -21,6 +21,8 @@ public class mapaCreator : MonoBehaviour
     public Vector3 exit;
     public int numRows;
     public int numCols;
+    public Vector3[] mesas;
+    private int y = 0;
     public void Start()
     {
         string[] lineas = mapaTexto.text.Split('\n'); // Leer cada línea del archivo de texto
@@ -39,7 +41,7 @@ public class mapaCreator : MonoBehaviour
                 // Calcular la posición en el mundo de Unity
                 Vector3 position = new Vector3(x * tileSize + x * offset, -y * tileSize - y*offset, 0f);               
                 Vector3 positioni = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset + 0.15f, -0.1f);
-                Vector3 positionj = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset, -0.2f);
+                Vector3 positionj = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset, -3f);
                 if (y == 0)
                 {
                     Vector3 positionp = new Vector3(x * tileSize + x * offset, -y * tileSize - y * offset + 0.5f, 0f);
@@ -95,6 +97,8 @@ public class mapaCreator : MonoBehaviour
                 {
                     Instantiate(WoodenTable, positionj, Quaternion.identity); // Instanciar la tabla en la posición correspondiente
                     Instantiate(WoodenChair, positioni, Quaternion.identity); // Instanciar la silla en la posición correspondiente
+                    //mesas[y] = positionj;
+                    //y++;
                 }
             }
         }       

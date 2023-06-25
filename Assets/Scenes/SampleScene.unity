@@ -333,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.25
   rb: {fileID: 1318289814}
+  player: {fileID: 0}
 --- !u!1 &1609251946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 51539076733853365, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
@@ -350,6 +351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be8ff90a989d444d91ca7be39b9ee93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy1: {fileID: 4564347681672268386, guid: 2686044f0f32e5e4faefdc20f7c4c432, type: 3}
+  player: {fileID: 6245593673044345994, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+  tileSize: 1
+  offset: 0.25
 --- !u!114 &1609251951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b9f6022624e234f8397dbe8abdb418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy1: {fileID: 4564347681672268386, guid: 2686044f0f32e5e4faefdc20f7c4c432, type: 3}
+  player: {fileID: 6245593673044345994, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+  tileSize: 1
+  offset: 0.25
 --- !u!50 &1609251953
 Rigidbody2D:
   serializedVersion: 4
@@ -403,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.25
   rb: {fileID: 1318289814}
+  player: {fileID: 0}
 --- !u!1 &1746827729
 GameObject:
   m_ObjectHideFlags: 0
