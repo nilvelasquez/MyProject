@@ -22,7 +22,7 @@ public class mapaCreator : MonoBehaviour
     public int numRows;
     public int numCols;
     public Vector3[] mesas;
-    private int y = 0;
+    //private int y = 0;
     public void Start()
     {
         string[] lineas = mapaTexto.text.Split('\n'); // Leer cada línea del archivo de texto

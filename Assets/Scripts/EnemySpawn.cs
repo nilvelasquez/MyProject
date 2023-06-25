@@ -16,7 +16,7 @@ public class EnemySpawn : MonoBehaviour
         float x = UnityEngine.Random.Range(1, 4);
         Vector3 position = new Vector3(2*tileSize + x*offset, -2*tileSize -y*offset, -3f); ;
         Instantiate(enemy1, position, Quaternion.identity);
-        enemy1.GetComponent<Enemy>().SetTarget(player);
+        //enemy1.GetComponent<Enemy>().SetTarget(player);
     }
 
     //Función para determinar la posición donde apareceran los enemigos de forma aleatoria y siempre fuera de la pantalla

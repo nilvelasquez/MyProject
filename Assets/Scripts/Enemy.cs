@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Transform attackPosition;
+    /*Transform attackPosition;
     GameObject targetGameObject;
     PlayerStats targetPlayer;
     [SerializeField] float speed;
@@ -59,5 +59,5 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 }

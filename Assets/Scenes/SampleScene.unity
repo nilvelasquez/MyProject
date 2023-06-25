@@ -203,6 +203,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8253981698829695489, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+      propertyPath: m_Size.x
+      value: 0.21772027
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253981698829695489, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+      propertyPath: m_Size.y
+      value: 0.38114524
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253981698829695489, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253981698829695489, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0074284077
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253981698829695489, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -288,6 +308,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6245593673044345994, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
     - target: {fileID: 8418705844694209631, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
+      propertyPath: WoodenChair
+      value: 
+      objectReference: {fileID: 4044939104407069556, guid: d1a68ee8ec18ffc49ae790032bb18610, type: 3}
+    - target: {fileID: 8418705844694209631, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
       propertyPath: enemy.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -319,6 +343,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 51539076733853365, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1609251956}
+    - targetCorrespondingSourceObject: {fileID: 51539076733853365, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1609251959}
+    - targetCorrespondingSourceObject: {fileID: 51539076733853365, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1609251960}
   m_SourcePrefab: {fileID: 100100000, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
 --- !u!20 &1190566454 stripped
 Camera:
@@ -427,6 +457,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.25
   rb: {fileID: 1318289814}
+--- !u!114 &1609251959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609251946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7204bdd46e46b914d9384e11219666dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1609251960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609251946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9954edeb9a62040a4b42e9abfd1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746827729
 GameObject:
   m_ObjectHideFlags: 0
