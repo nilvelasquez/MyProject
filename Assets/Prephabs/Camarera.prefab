@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6208102359208985163}
   - component: {fileID: 4917114716054435792}
   - component: {fileID: 8253981698829695489}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Camarera
   m_TagString: Player
   m_Icon: {fileID: 0}

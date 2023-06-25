@@ -6,8 +6,8 @@ using UnityEngine.Rendering;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth = 100;
+    public int maxHealth = 2;
+    public int currentHealth = 2;
     [SerializeField] HealthBar hpBar;
     private bool isDead = false;
     float totaltime;

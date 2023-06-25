@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 2000f;
     public Rigidbody2D rb;
     //public GameObject player;
     private BoxCollider2D box;

@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     //Calculamos la dirección hacia donde se tiene que mover el monstruo para atacar al jugador
     private void FixedUpdate()
     {
-        Vector3 direction = (attackPosition.position - transform.position).normalized;
+        Vector2 direction = (attackPosition.position - transform.position);
         rigid.velocity = direction * speed;
     }
 
