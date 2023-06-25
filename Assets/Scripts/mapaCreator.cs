@@ -74,7 +74,7 @@ public class mapaCreator : MonoBehaviour
                     if ((x == numCols - 2) && (cont2 == true))
                     {
                         Vector3 positiony = new Vector3(x * tileSize + x * offset + 0.5f, -y * tileSize - y * offset - 0.5f, 0f);
-                        Vector3 positionx = new Vector3(x * tileSize + x * offset - 0.5f, -y * tileSize - y * offset - 0.5f, 0f);
+                        Vector3 positionx = new Vector3(x * tileSize + x * offset - 0.5f, -y * tileSize - y * offset - 0.5f, -3f);
                         Instantiate(stone2, positiony, Quaternion.identity); // Instanciar la pared en la posición correspondiente
                         exit = positionx;
                         Instantiate(Exit, positionx, Quaternion.identity);

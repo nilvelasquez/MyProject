@@ -4,9 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public abstract class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 0.25f;
+    public float speed = 1f;
     public Rigidbody2D rb;
     private BoxCollider2D box;
     private Vector3 movement;
@@ -21,38 +21,30 @@ public abstract class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
+        
+    }
+    void FixedUpdate()
+    {
         rb.AddForce(movement * speed);
     }
     public void MoveUp()
     {
-        Debug.Log("UP");
-        movement = new Vector3(0f, 1f, 0f);
-        MoveCharacter();
+        rb.AddForce(new Vector3(0f, speed, 0f));
     }
 
     public void MoveDown()
     {
-        Debug.Log("DOWN");
-        movement = new Vector3(0f, -1f, 0f);
-        MoveCharacter();
+        rb.AddForce(new Vector3(0f,-speed, 0f));
     }
 
     public void MoveLeft()
     {
-        Debug.Log("LEFT");
-        movement = new Vector3(-1f, 0f, 0f);
-        MoveCharacter();
+        rb.AddForce(new Vector3(-speed, 0f, 0f));
     }
 
     public void MoveRight()
     {
-        Debug.Log("RIGHT");
-        movement = new Vector3(1f, 0f, 0f);
-        MoveCharacter();
-    }
-    private void MoveCharacter()
-    {
-        rb.AddForce(movement * speed);
+        rb.AddForce(new Vector3(speed, 0f, 0f));
     }
     /*
     [SerializeField] private float speed;
