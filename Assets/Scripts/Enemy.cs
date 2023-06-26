@@ -8,22 +8,74 @@ public class Enemy : MonoBehaviour
     Transform attackPosition;
     GameObject targetGameObject;
     PlayerStats targetPlayer;
-    [SerializeField] float speed;
+    //private float speed = 1f;
     [SerializeField] int health;
     [SerializeField] int damage = 1;
-
-    Rigidbody2D rigid;
+    Vector2 direction;
+    public Rigidbody2D rigid;
+    private float inverseMoveTime;
+    public float moveTime = 0.1f;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        targetGameObject= GameObject.Find("Camarera");
+        inverseMoveTime = 1f / moveTime;
     }
 
     //Calculamos la dirección hacia donde se tiene que mover el monstruo para atacar al jugador
     private void FixedUpdate()
     {
-        //Vector2 direction = attackPosition.position - transform.position;
-        //GetComponent<Rigidbody2D>().MovePosition(transform.position + direction * speed);
+        /*attackPosition = targetGameObject.transform;
+        direction = attackPosition.position - transform.position;
+        rigid.velocity = direction * speed;*/
+        int xDir = 0;
+        int yDir = 0;
+        bool hor = false;
+        bool ver = false;
+        attackPosition = targetGameObject.transform;
+        if (Mathf.Abs(attackPosition.position.x - transform.position.x)>float.Epsilon)
+        {
+            hor = true;
+        }
+        if (Mathf.Abs(attackPosition.position.y - transform.position.y) > float.Epsilon)
+        {
+            ver = true;
+        }
+        if(ver)
+        {
+            xDir = 0;
+            yDir = attackPosition.position.y > transform.position.y ? 1 : -1;
+            Vector3 start = transform.position;
+            Debug.Log("startV" + start);
+            Vector3 end = start + new Vector3(xDir, yDir, 0f);
+            Debug.Log("endV" + end);
+            float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+            while (sqrRemainingDistance > float.Epsilon)
+            {
+                Vector3 newPosition = Vector3.MoveTowards(rigid.position, end, inverseMoveTime * Time.deltaTime);
+                Debug.Log("newPosV"+ newPosition);
+                rigid.MovePosition(newPosition);
+                sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+            }
+        }
+        if (hor)
+        {
+            xDir = attackPosition.position.x > transform.position.x ? 1 : -1;
+            yDir = 0;
+            Vector3 start = transform.position;
+            Debug.Log("startV" + start);
+            Vector3 end = start + new Vector3(xDir, yDir, 0f);
+            Debug.Log("endV" + end);
+            float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+            while (sqrRemainingDistance > float.Epsilon)
+            {
+                Vector3 newPosition = Vector3.MoveTowards(rigid.position, end, inverseMoveTime * Time.deltaTime);
+                Debug.Log("newPosV" + newPosition);
+                rigid.MovePosition(newPosition);
+                sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+            }
+        }
     }
 
     //Función que llamamos cuando entra en contacto con el jugador
@@ -43,12 +95,5 @@ public class Enemy : MonoBehaviour
             targetPlayer = targetGameObject.GetComponent<PlayerStats>();
         }
         targetPlayer.TakeDamage(damage);
-    }
-
-    //Función que llamamos cuando se crea un monstruo nuevo para darlo como objetivo al jugador
-    public void SetTarget(GameObject target)
-    {
-        targetGameObject = target;
-        attackPosition = target.transform;
     }
 }

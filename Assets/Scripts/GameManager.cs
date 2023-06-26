@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private mapaCreator mapaScript;
-    private EnemySpawn enemy;
     public GameObject enemy1;
     public GameObject player;
     public float tileSize = 1f;
@@ -23,7 +22,7 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {        
         mapaScript.Start();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         { 
             float y = UnityEngine.Random.Range(1, 4);
             float x = UnityEngine.Random.Range(1, 4);
@@ -45,6 +44,7 @@ public class GameManager : MonoBehaviour
                 float m = UnityEngine.Random.Range(1, 4);
                 Vector3 positioni = new Vector3(m * tileSize, -z * tileSize, -3f);
                 Instantiate(enemy1, positioni, Quaternion.identity);
+                //enemy1.GetComponent<Enemy>().SetTarget(player); 
             }
             else
             {
