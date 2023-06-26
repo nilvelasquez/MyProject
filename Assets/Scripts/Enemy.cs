@@ -32,13 +32,5 @@ public class Enemy : MonoBehaviour
     }
 
     //Función que llamamos cuando entra en contacto con el jugador
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject == targetGameObject)
-        {
-            game.SetActive(true);
-            Debug.Log("Game Over");
-            //Application.Quit();
-        }
-    }
+    
 }
