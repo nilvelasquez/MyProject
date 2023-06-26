@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {        
         mapaScript.Start();
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         { 
             float y = UnityEngine.Random.Range(1, 4);
             float x = UnityEngine.Random.Range(1, 4);
@@ -44,12 +44,10 @@ public class GameManager : MonoBehaviour
                 float m = UnityEngine.Random.Range(1, 4);
                 Vector3 positioni = new Vector3(m * tileSize, -z * tileSize, -3f);
                 Instantiate(enemy1, positioni, Quaternion.identity);
-                //enemy1.GetComponent<Enemy>().SetTarget(player); 
             }
             else
             {
                 Instantiate(enemy1, position, Quaternion.identity);
-                //enemy1.GetComponent<Enemy>().SetTarget(player);
             }
         }
     }

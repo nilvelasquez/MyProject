@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 8418705844694209631, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
       propertyPath: enemy1
       value: 
-      objectReference: {fileID: 6439104959581505035, guid: 202c6e91213356b4cbfb9c8d189480c9, type: 3}
+      objectReference: {fileID: 4614625764497595833, guid: 68ed173709285f143a257bc3a2f31f25, type: 3}
     - target: {fileID: 8418705844694209631, guid: 2ac301e0df3a1e74093ff15faa0a420f, type: 3}
       propertyPath: player
       value: 
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be8ff90a989d444d91ca7be39b9ee93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1: {fileID: 6439104959581505035, guid: 202c6e91213356b4cbfb9c8d189480c9, type: 3}
+  enemy1: {fileID: 4614625764497595833, guid: 68ed173709285f143a257bc3a2f31f25, type: 3}
   player: {fileID: 6245593673044345994, guid: 0a47211c4ce03f0409c5608d9091b642, type: 3}
   tileSize: 1
   offset: 0.25
@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 1757178503}
   - component: {fileID: 1757178502}
   - component: {fileID: 1757178501}
+  - component: {fileID: 1757178504}
   m_Layer: 5
   m_Name: LeftButton
   m_TagString: Untagged
@@ -579,19 +580,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1757178502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1318289818}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: MoveLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1757178502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +619,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757178499}
   m_CullTransparentMesh: 1
+--- !u!114 &1757178504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757178499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318289818}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: MoveLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318289818}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: MoveLeftSoltar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1801819937
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +821,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1318289818}
           m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MoveUpStop
+          m_MethodName: MoveUpsoltar
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -954,7 +988,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1318289818}
           m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MoveRightStop
+          m_MethodName: MoveRightSoltar
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1082,6 +1116,7 @@ GameObject:
   - component: {fileID: 2039322067}
   - component: {fileID: 2039322066}
   - component: {fileID: 2039322065}
+  - component: {fileID: 2039322068}
   m_Layer: 5
   m_Name: DownButton
   m_TagString: Untagged
@@ -1152,19 +1187,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2039322066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1318289818}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: MoveDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2039322066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,3 +1226,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039322063}
   m_CullTransparentMesh: 1
+--- !u!114 &2039322068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039322063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318289818}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: MoveDownSoltar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1318289818}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: MoveDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

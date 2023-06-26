@@ -11,7 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D box;
     private Vector2 movement;
     private Vector2 movement2;
-    private bool up;
+    private bool up = false;
+    private bool down = false;
+    private bool left = false;
+    private bool right = false;
    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,46 +26,61 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         movement = new Vector2(moveHorizontal, moveVertical);
-        //Debug.Log(moveHorizontal);
-        if ((movement2.x != 0) || (movement2.y != 0))
-        {
-            Debug.Log("pulsada " + movement2);
-            movement = movement2;
-            movement2 = new Vector2(0f, 0f);           
-        }
     }
     void FixedUpdate()
     {
+        if (up)
+        {
+            movement2 = new Vector2(0f, 1f);
+            movement = movement2;
+        }
+        if (right)
+        {
+            movement2 = new Vector2(1f, 0f);
+            movement = movement2;
+        }
+        if (left)
+        {
+            movement2 = new Vector2(-1f, 0f);
+            movement = movement2;
+        }
+        if (down)
+        {
+            movement2 = new Vector2(0f, -1f);
+            movement = movement2;
+        }
         rb.velocity = movement * speed;
     }
     public void MoveUp()
     {
-        movement2 = new Vector2(0f, 5f);
-        //rb.velocity = movement2 * speed;
+        up = true;        
     }
-    public void MoveUpStop()
+    public void MoveUpsoltar()
     {
-        movement2 = new Vector2(0f, 0f);
+        up = false;
     }
     public void MoveDown()
     {
-        Debug.Log("D");
-        movement2 = new Vector2(0f, -5f);
-        //rb.velocity = movement * speed;
+        down = true;
+    }
+    public void MoveDownSoltar()
+    {
+        down = false;
     }
     public void MoveLeft()
     {
-        Debug.Log("Left");
-        movement2 = new Vector2(-5f, 0f);
-        //rb.velocity = movement2 * speed;
+        left = true;
+    }
+    public void MoveLeftSoltar()
+    {
+        left = false;
     }
     public void MoveRight()
     {
-        movement2 = new Vector2(5f, 0f);
-        //rb.velocity = movement * speed;
+        right = true;
     }
-    public void MoveRightStop()
+    public void MoveRightSoltar()
     {
-        movement2 = new Vector2(0f, 0f);
+        right = false;
     }
 }
