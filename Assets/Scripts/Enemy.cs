@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     Transform attackPosition;
     GameObject targetGameObject;
     private float speed = 0.75f;
+    public GameObject game;
     Vector2 direction;
     public Rigidbody2D rigid;
     private float inverseMoveTime;
@@ -35,8 +36,9 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject == targetGameObject)
         {
+            game.SetActive(true);
             Debug.Log("Game Over");
-            Application.Quit();
+            //Application.Quit();
         }
     }
 }
