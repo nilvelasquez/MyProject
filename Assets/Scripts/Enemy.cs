@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     Transform attackPosition;
     GameObject targetGameObject;
-    private float speed = 0.75f;
+    private float speed = 0.6f;
     Vector2 direction;
     public Rigidbody2D rigid;
     private float inverseMoveTime;

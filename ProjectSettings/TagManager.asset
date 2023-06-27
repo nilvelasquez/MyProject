@@ -9,6 +9,7 @@ TagManager:
   - Comida
   - Exit
   - Panel
+  - Panel2
   layers:
   - Default
   - TransparentFX

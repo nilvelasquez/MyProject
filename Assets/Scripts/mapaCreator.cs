@@ -16,16 +16,25 @@ public class mapaCreator : MonoBehaviour
     Transform attackPosition;
     public GameObject Exit; //Prefab del exit    
     public float tileSize = 1f; // Tamaño de cada cuadrícula en unidades de Unity
-    public TextAsset mapaTexto; // El archivo de texto con la distribución del mapa
+    //public TextAsset mapaTexto; // El archivo de texto con la distribución del mapa
     public float offset = 0.25f;
     public Vector3 exit;
     public int numRows;
     public int numCols;
     public Vector3[] mesas;
+    private string texto;
     //private int y = 0;
+    public void ReceiveValues(string data, string data2)
+    {
+        // Aquí puedes trabajar con los valores recibidos desde Android Studio
+        Debug.Log("Valor 1: " + data);
+        Debug.Log("Valor 2: " + data2);
+        this.texto = data2;
+    }
     public void Start()
     {
-        string[] lineas = mapaTexto.text.Split('\n'); // Leer cada línea del archivo de texto
+        //string[] lineas = mapaTexto.text.Split('\n'); // Leer cada línea del archivo de texto
+        string[] lineas = texto.Split('\n'); // Leer cada línea del archivo de texto
         this.numRows = lineas.Length; // Obtener el número de filas del mapa
         this.numCols = lineas[0].Length; // Obtener el número de columnas del mapa (asumiendo que todas las filas tienen la misma longitud)
         SetCols(numCols);
@@ -102,7 +111,7 @@ public class mapaCreator : MonoBehaviour
                 }
             }
         }       
-    }
+    }    
     public void SetCols(int numCols)
     {
         this.numCols = numCols;

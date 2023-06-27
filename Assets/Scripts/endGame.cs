@@ -5,7 +5,7 @@ using UnityEngine;
 public class endGame : MonoBehaviour
 {
     public void exitfinal()
-    {        
-        Application.Quit();
+    {
+        GetComponent<GameOver>().GameOverF();
     }
 }
